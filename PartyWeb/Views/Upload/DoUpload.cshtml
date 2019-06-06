@@ -1,0 +1,29 @@
+﻿@model PartyMaker.PartyModel
+
+@{
+    ViewBag.Title = "Праздник " + Model.TypeofEvent;
+    Layout = "_Layout";
+}
+
+<h2>Праздник @Model.TypeofEvent</h2>
+
+@Model.Distination
+@Model.Services 
+
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <td>Имя</td>
+            <td>Должность</td>
+            <td>Стаж</td>
+        </tr>
+    </thead>
+    @foreach (var worker in Model.Workers)
+    {
+        <tr>
+            <td>@worker.Name</td>
+            <td>@worker.Position</td>
+            <td>@worker.Experience</td>
+        </tr>
+    }
+</table>

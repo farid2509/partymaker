@@ -1,0 +1,40 @@
+﻿@model System.Collections.Generic.List<PartyWeb.Models.DataAccessPostgreSqlProvider.DbParty>
+@{
+    ViewBag.Title = "Праздники";
+    Layout = "_Layout";
+}
+<h2>@ViewBag.Title</h2>
+@foreach (var party in Model)
+{
+    <div>
+        Тип праздника:
+        @party.TypeofEvent
+        Место проведения:
+        @party.Distination
+        Услуги:
+        @party.Services
+      
+        <table class="table table-bordered table-responsive table-hover">
+            <thead>
+                <tr>
+                    <td>Имя</td>
+                    <td>Должность</td>
+                    <td>Стаж</td>
+                </tr>
+            </thead>
+            @if (party.Workers != null)
+            {
+                foreach (var worker in party.Workers)
+                {
+                    <tr>
+                        <td>@worker.Name</td>
+                        <td>@worker.Position</td>
+                        <td>@worker.Experience</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+}
+
+
